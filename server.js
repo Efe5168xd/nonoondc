@@ -8,6 +8,11 @@ const client = new Client({
 
 app.use(express.json());
 
+// Ana sayfa hatasını düzeltmek için (Tarayıcıdan girince bu görünür)
+app.get('/', (req, res) => {
+    res.send('<h1>Leaderboard Botu Aktif!</h1><p>Roblox verileri başarıyla işleniyor.</p>');
+});
+
 app.post('/update-leaderboard', async (req, res) => {
     const players = req.body.players;
     const channelId = process.env.CHANNEL_ID;
